@@ -61,6 +61,7 @@ let loadWeekForecastData = (data) => {
 	
 }
 
+//Charge cities available
 let chargeCity = () => {
   let element = document.getElementsByName("select")[0]
   for (let data in data_city){
@@ -79,6 +80,7 @@ let eventCity = (data) => {
 let cities = (data_city) => {
   let cities = document.querySelector(".select_city");
   cities.addEventListener('change', (event) => {
+      document.getElementsByClassName("list-group")[0].innerHTML = ""
       eventCity(data_city[event.target.value]);
       loadDayForecastData(data_city[event.target.value])
     console.log(event.target.value)
@@ -87,6 +89,7 @@ let cities = (data_city) => {
 
 loadDayForecastData(data_city["Guayaquil"])
 chargeCity()
+
 document.addEventListener("DOMContentLoaded", (event) => {
   cities(data_city);
 })
